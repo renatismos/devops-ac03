@@ -1,0 +1,13 @@
+Aparelhos compatíveis
+
+Para utilizar o WhatsApp no iPhone, você precisa ter a versão do iOS 7 ou mais recente. Para uma melhor experiência, 
+recomendamos que você utilize a versão mais recente do iOS disponível para o seu iPhone. Por favor, visite o site de 
+suporte da Apple para aprender como atualizar o software do seu iPhone.
+
+Importante: No momento, iPods e iPads não são compatíveis.
+
+Todos os aparelhos de telefone Android que atendam aos seguintes requisitos são compatíveis:
+
+Seu telefone Android está na versão Android 2.3.3 ou mais recente.
+Seu telefone Android consegue receber SMS ou chamadas durante o processo de verificação.
+Você também precisará de um plano de dados para receber mensagens quando estiver fora do alcance de uma rede Wi-Fi.
