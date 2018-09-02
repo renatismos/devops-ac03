@@ -1,0 +1,5 @@
+#Descrição do Banco de Dados
+
+- Será utilizado o banco de dados MySQL, que é um dos SGBDs mais utilizados atualmente. Entre as suas características, podemos destacar a portabilidade, já que está disponível em diversas plataformas, a compatibilidade com várias linguagens diferentes de programação, seu ótimo desempenho e estabilidade e, por fim, por ser open source.
+
+- O banco deverá ser estruturado em diferentes tabelas para armazenar de forma separada os dados dos clientes (nome, endereço, telefone, email, redes sociais), dos fornecedores (nome, endereço, email, redes sociais, produtos) e para armazenar todas as configurações que o usuário poderá modificar (tipos de festa, opções adicionais, etc.). Também será necessário uma tabela para armazenar de todas as transações realizadas na ferramenta.
