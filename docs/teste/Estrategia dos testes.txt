@@ -1,0 +1,228 @@
+Estratégia do Teste 
+A Estratégia de Teste apresenta a abordagem recomendada para o teste dos aplicativos de software. A seção anterior dos Requisitos de Teste descrevia o que será testado; esta descreve como será testado.
+As principais considerações para a estratégia de teste são as técnicas a serem utilizadas e o critério para saber quando o teste está concluído.
+Além das considerações fornecidas para cada teste a seguir, o teste deve ser executado apenas utilizando bancos de dados conhecidos e controlados, em ambientes protegidos.
+A estratégia de teste a seguir é genérica por natureza e foi desenvolvida para ser aplicada aos requisitos listados na seção 4 deste documento. 
+
+Tipos de Teste
+
+	1. Teste de Integridade dos Dados e do Banco de Dados
+		Os bancos de dados e os processos de banco de dados devem ser testados como sistemas separados. Esses sistemas devem ser testados sem os aplicativos (como a interface para os dados). É necessário executar pesquisas adicionais referentes ao DBMS a fim de identificar as ferramentas / técnicas que poderão existir para suportar os testes identificados a seguir.
+		Objetivo do Teste:
+		Assegurar que os processos e métodos de acesso ao Banco de Dados funcionem corretamente e sem corrupção de dados.
+		Técnica: 
+		Chamar cada processo e método de acesso a banco de dados, propagando cada um com dados válidos e inválidos (ou pedidos de dados).
+		Inspecionar o banco de dados para assegurar que os dados foram preenchidos conforme planejado e que todos os eventos do banco de dados ocorreram adequadamente ou revisar os dados retornados para assegurar que os dados corretos foram recuperados (pelas razões corretas) 
+		Critérios de Conclusão:
+		Todos os processos e métodos de acesso ao banco de dados funcionam conforme projetado e sem nenhuma corrupção de dados.
+		Considerações Especiais: 
+		Os testes podem exigir drivers ou um ambiente de desenvolvimento DBMS para digitar ou modificar dados diretamente nos bancos de dados. 
+		Os processos devem ser chamados manualmente.
+		Bancos de dados pequenos ou de tamanho mínimo (número limitado de registros) devem ser utilizados para aumentar a visibilidade de quaisquer eventos não aceitáveis.
+
+	2. Teste do Sistema
+		Os testes do aplicativo devem ter foco em quaisquer requisitos de destino que possam ser rastreados diretamente para casos de uso (ou funções de negócios) e regras de negócios. A meta desse teste é verificar a adequada aceitação, o processamento e a recuperação dos dados, e a implementação apropriada das regras de negócios. Esse tipo de teste baseia-se em técnicas de caixa preta, ou seja, verificar o aplicativo (e seus processos internos) interagindo com o aplicativo por meio da GUI e analisar a saída (resultados). A seguir é identificado um esboço do teste recomendado para cada aplicativo:
+		 
+		Objetivo do Teste:
+		Assegurar a navegação correta do aplicativo, além da entrada, processamento e recuperação de dados.
+		Técnica: 
+		Executar cada caso de uso, fluxo de caso de uso ou função, utilizando dados válidos e inválidos, para verificar o seguinte:
+		Os resultados esperados ocorrerão quando forem usados dados válidos. 
+		As mensagens de erro / aviso apropriadas sejam exibidas quando dados inválidos forem utilizados.
+		Cada regra de negócio será adequadamente aplicada. 
+		Critérios de Conclusão:
+		Todos os testes planejados foram executados.
+		Todos os defeitos identificados foram tratados.
+		Considerações Especiais: 
+		O acesso ao Servidor UNIX do Wylie College e ao Sistema de Catálogo de Cursos e Sistema de Faturamento existentes é requerido.
+
+		3. Teste de Ciclo de Negócio
+			O Teste de Ciclo de Negócios deve emular as atividades executadas no sistema ao longo do tempo. Deverá ser identificado um período como, por exemplo, um ano, e deverão ser executadas as transações e atividades que ocorreriam durante esse período de um ano. Isso inclui todos os ciclos diários, semanais e mensais, assim como os eventos sensíveis a datas como, por exemplo, lembretes.
+			 
+			Objetivo do Teste
+			Assegurar que os processos de segundo plano e do aplicativo corretos funcionem de acordo com os planejamentos e os modelos de negócios requeridos. 
+			Técnica: 
+			O teste simulará vários ciclos de negócios, executando o seguinte: 
+			Os testes utilizados para o teste de funções do aplicativo serão modificados / melhorados para aumentar o número de vezes que cada função é executada, a fim de simular vários usuários diferentes ao longo de um período de tempo especificado. 
+			Todas as funções sensíveis a datas ou tempo serão executadas usando datas ou períodos de tempo válidos e inválidos. 
+			Todas as funções que ocorrerem segundo um planejamento periódico serão executadas / iniciadas no momento adequado. 
+			O teste incluirá o uso de dados válidos e inválidos para verificar se: 
+			Os resultados esperados ocorrerão quando forem usados dados válidos. 
+			As mensagens de erro / aviso apropriadas sejam exibidas quando dados inválidos forem utilizados.
+			Cada regra de negócio será adequadamente aplicada. 
+			Critérios de Conclusão:
+			Todos os testes planejados foram executados.
+			Todos os defeitos identificados foram tratados.
+			Considerações Especiais: 
+			Os eventos e as datas do sistema podem exigir atividades de suporte especiais
+			É necessário um modelo de negócios para identificar requisitos e procedimentos de teste adequados.
+
+		4. Teste da Interface com o Usuário
+			O teste da Interface com o Usuário verifica a interação de um usuário com o software. A meta do Teste de UI é assegurar que a Interface com o Usuário forneça ao usuário o acesso e a navegação adequados por meio das funções dos aplicativos. Além disso, o Teste de UI assegura que os objetos contidos na UI funcionem conforme esperado e estejam em conformidade com padrões corporativos ou do segmento de mercado.
+			 
+			Objetivo do Teste:
+			Verifique o seguinte: 
+			A navegação pelo aplicativo reflete os requisitos e funções de negócios, incluindo a navegação janela a janela, campo a campo e o uso de métodos de acesso (teclas de tabulação, movimentos do mouse e teclas aceleradoras) 
+			Objetos e características da janela, tais como menus, tamanho, posição, estado e foco estão em conformidade com os padrões.
+			Técnica: 
+			Criar / modificar testes para cada janela a fim de verificar a navegação adequada e os estados de objeto para cada janela e objeto do aplicativo. 
+			Critérios de Conclusão:
+			Verificação com êxito de cada janela permanecer consistente com a versão de benchmark ou dentro do padrão aceitável
+			Considerações Especiais: 
+			Nem todas as propriedades de objetos personalizados e de terceiros podem ser acessadas. 
+
+		5. Teste de Desempenho
+			O teste de desempenho mede tempos de resposta, taxas de transação e outros requisitos sensíveis ao tempo. A meta do teste de Desempenho é verificar e validar se os requisitos de desempenho foram alcançados. O teste de desempenho normalmente é executado várias vezes, cada uma utilizando uma "carga de segundo plano" diferente no sistema. O teste inicial deve ser executado com uma carga "nominal", semelhante à carga normal observada (ou prevista) no sistema de destino. Um segundo teste de desempenho é executado utilizando uma carga de pico.
+			Além disso, os testes de desempenho podem ser utilizados para traçar o perfil e ajustar o desempenho de um sistema como uma função de condições, como a carga de trabalho ou configurações de hardware.
+			NOTA: As transações a seguir se referem a "transações comerciais lógicas." Essas são transações são definidas como funções específicas que se espera que um usuário do sistema execute utilizando o aplicativo, como incluir ou modificar um determinado contrato.
+			 
+			Objetivo do Teste:
+			Validar o Tempo de Resposta do Sistema para funções de negócios ou transações designadas sob as duas condições a seguir: 
+			- volume normal previsto
+			- volume de pior caso previsto
+			Técnica: 
+			Utilizar Scripts de Teste desenvolvidos para Teste de Modelo de Negócio (Teste do Sistema).
+			Modificar arquivos de dados (a fim de aumentar o número de transações) ou modificar scripts a fim de aumentar o número de iterações ocorrido em cada transação.
+			Os scripts devem ser executados em uma máquina (o melhor é avaliar o desempenho de um único usuário, uma única transação) e repetidos com vários clientes (virtuais ou reais, consulte as considerações especiais a seguir).
+			Critérios de Conclusão:
+			Transação Única / usuário único: Conclusão com êxito dos scripts de teste sem nenhum defeito e na alocação de tempo esperada / requerida (por transação)
+			Várias Transações / vários usuários: Conclusão com êxito dos scripts de teste sem nenhum defeito e dentro de alocação de tempo aceitável.
+			Considerações Especiais: 
+			O teste abrangente do desempenho inclui ter uma carga "em segundo plano" no servidor. Há vários métodos que podem ser usados para executar esse teste, incluindo: 
+			"Encaminhar as transações" diretamente para o servidor, geralmente na forma de chamadas SQL.
+			Criar carga "virtual" de usuários para simular muitos (geralmente várias centenas) de clientes. Para se obter essa carga, geralmente são usadas ferramentas de Emulação de Terminal Remoto. Essa técnica também pode ser utilizada para carregar a rede com "tráfego".
+			Utilizar vários clientes físicos, cada qual executando scripts de teste para inserir carga no sistema. 
+			O teste de desempenho deverá ser executado em uma máquina dedicada ou em um período de tempo dedicado. Isso permitirá o controle total e a medição exata. 
+			Os bancos de dados utilizados para teste de Desempenho deverão ter tamanhos reais ou ser igualmente escalados.
+
+		6. Teste de Carga
+			As medidas do teste de carga sujeitam o sistema em teste a cargas de trabalho variáveis para avaliar a capacidade do sistema em continuar a funcionar corretamente sob essas diferentes cargas de trabalho. A meta desse teste de carga é determinar e assegurar que o sistema funcione adequadamente com uma carga de trabalho superior à carga máxima esperada. Além disso, o teste de carga avalia as características de desempenho (tempos de resposta, taxas de transação e outros aspectos sensíveis ao tempo). 
+			NOTA: As transações a seguir se referem a "transações comerciais lógicas." Essas são transações são definidas como funções específicas que se espera que um usuário do sistema execute utilizando o aplicativo, como incluir ou modificar um determinado contrato.
+			Objetivo do Teste:
+			Verificar o Tempo de Resposta do Sistema para casos de negócios ou transações designadas sob condições de carga de trabalho variáveis.
+			Técnica: 
+			Utilizar os testes desenvolvidos para o Teste do Ciclo de Negócio.
+			Modificar os arquivos de dados (a fim de aumentar o número de transações) ou os testes a fim de aumentar o número de vezes que cada transação ocorre. 
+			Critérios de Conclusão:
+			Várias Transações / vários usuários: Conclusão com êxito dos testes sem nenhum defeito e dentro de alocação de tempo aceitável.
+			Considerações Especiais: 
+			Os testes de carga devem ser executados em uma máquina dedicada e em um período de tempo dedicado. Isso permitirá o controle total e a medição exata. 
+			Os bancos de dados utilizados para teste de carga deverão ter tamanhos reais ou ser igualmente escalados.
+
+		7. Teste de Estresse
+			O teste de estresse foi projetado para localizar erros devidos a falta de recursos ou competição por recursos. Pouca memória ou espaço em disco podem revelar defeitos no software que não são aparentes sob condições normais. Outros defeitos podem resultar da competição por recurso compartilhado, como bloqueios de banco de dados ou largura da banda de rede. O teste de estresse identifica a carga de pico que o sistema pode manipular.
+			NOTA: As referências às transações a seguir referem-se a transações comerciais lógicas.
+			Objetivo do Teste:
+			Verificar se o sistema e o software funcionam corretamente e sem erros sob as seguintes condições de estresse: 
+			pouca ou nenhuma memória disponível no servidor (RAM e DASD)
+			número máximo (real ou fisicamente capaz) de clientes conectados (ou simulados)
+			vários usuários executando as mesmas transações nos mesmos dados / contas
+			conjunto / volume de transações no pior caso (consulte o teste de desempenho acima).
+			NOTAS: A meta do teste de estresse também pode ser definida como identificar e documentar as condições sob as quais o sistema FALHA em continuar funcionando corretamente.
+			Técnica: 
+			Utilizar os testes desenvolvidos para o Teste de Desempenho.
+			Para testar recursos limitados, os testes devem ser executados em uma única máquina e a RAM e DASD no servidor devem ser reduzidos (ou limitados).
+			Para os testes de estresse restantes, deverão ser utilizados vários clientes, executando-se os mesmos testes ou testes complementares a fim de produzir o conjunto / volume de transações no pior caso. 
+			Critérios de Conclusão:
+			Todos os testes planejados são executados e os limites do sistema especificados são alcançados / excedidos sem o software ou falha do software (ou as condições sob as quais a falha do sistema ocorre estão fora das condições especificadas).
+			Considerações Especiais: 
+			Gerar estresse na rede pode exigir ferramentas da rede para carregar a rede com mensagens / pacotes.
+			O DASD usado para o sistema deverá ser reduzido temporariamente a fim de restringir o espaço disponível para que o banco de dados se desenvolva.
+			Sincronização do acesso simultâneo dos clientes aos mesmos registros / contas de dados.
+
+		8. Teste de Volume
+			O Teste de Volume sujeita o software a grandes quantidades de dados para determinar se serão atingidos limites que farão com que o software falhe. O teste de volume também identifica o volume ou a carga máxima contínua que o sistema pode manipular durante um determinado período de tempo. Por exemplo, se o software estiver processando um conjunto de registros de banco de dados para gerar um relatório, um Teste de Volume utilizará um grande banco de dados de testes e verificará se o software se comportou normalmente e gerou o relatório correto.
+			Objetivo do Teste:
+			Verifica se o aplicativo / sistema funciona com êxito sob os seguintes cenários de alto volume: 
+			número máximo (real ou fisicamente capaz) de clientes conectados (ou simulados), todos executando a mesma função de negócio em pior caso (desempenho) por um período extenso. 
+			o tamanho máximo do banco de dados foi alcançado (real ou escalado) e várias consultas / transações de relatório são executadas simultaneamente. 
+			Técnica: 
+			Utilizar os testes desenvolvidos para o Teste de Desempenho.
+			Deverão ser usados vários clientes, executando-se os mesmos testes ou testes complementares a fim de produzir o conjunto / volume de transações no pior caso (consulte teste de estresse acima) durante um longo período de tempo. 
+			O tamanho máximo do banco de dados é criado (real, escalado ou preenchido com dados representativos) e vários clientes são utilizados para executar consultas / transações de relatório simultaneamente por longos períodos de tempo. 
+			Critérios de Conclusão:
+			Todos os testes planejados foram executados e os limites do sistema especificados são alcançados / excedidos sem o software ou falha do software.
+			Considerações Especiais: 
+			Qual período de tempo seria considerado aceitável em condições de alto volume (conforme mencionado anteriormente)?
+
+		9. Teste de Segurança e Controle de Acesso
+			O Teste de Segurança e de Controle de Acesso tem como foco duas áreas principais de segurança:
+			Segurança do aplicativo, incluindo o acesso aos Dados ou às Funções de Negócios. 
+			Segurança do sistema, incluindo login e acesso remoto ao sistema.
+			A segurança do aplicativo assegura que, com base na segurança desejada, os usuários têm restrição a funções específicas ou estão limitados aos dados que estão disponíveis a eles. Por exemplo, todos têm permissão para inserir dados e criar novas contas, mas apenas os gerentes poderão excluí-los. Se houver segurança no nível dos dados, o teste assegura que o usuário "tipo" um pode consultar todas as informações do cliente, incluindo dados financeiros; no entanto, o usuário dois consulta apenas os dados demográficos para o mesmo cliente.
+			A segurança do sistema assegura que apenas os usuários, para os quais o acesso ao sistema foi concedido, sejam capazes de acessar os aplicativos e apenas por meio dos gateways apropriados.
+			Objetivo do Teste:
+			Segurança de Função / Dados: Verificar se o usuário pode acessar apenas as funções / dados para os quais seu tipo de usuário tenha recebido permissão. 
+			Segurança do Sistema: Verificar se apenas os usuários com acesso ao sistema e aplicativo(s) têm permissão para acessá-los.
+			Técnica: 
+			Segurança de Função / Dados: Identificar e listar cada tipo de usuário e as funções / dados para os quais cada tipo tem permissão. 
+			Criar testes para cada tipo de usuário e verificar a permissão criando transações específicas para cada tipo de usuário. 
+			Modificar o tipo de usuário e executar novamente os testes para os mesmos usuários. Em cada caso, verificar se as funções / dados adicionais estão corretamente disponíveis ou se têm seu acesso negado. 
+			Acesso ao Sistema (consulte considerações especiais a seguir)
+			Critérios de Conclusão:
+			Para cada tipo de usuário conhecido, a função / dados apropriados estão disponíveis e todas as transações funcionem como esperado e sejam executadas nos testes de Função de Aplicativo anteriores
+			Considerações Especiais: 
+			O acesso ao sistema deve ser revisado / discutido com o administrador da rede ou do sistema apropriado. Talvez esse teste não seja necessário, pois pode ser uma função de administração da rede ou do sistema.
+
+		10. Teste de Failover / Recuperação
+			O teste de Failover / Recuperação assegura que um aplicativo ou o sistema inteiro possa efetuar failover e se recuperar com êxito de uma série de falhas de hardware, software ou de rede com perda indevida de dados ou da integridade dos dados.
+			Para os sistemas que devem ser mantidos em execução, o teste de failover assegura que, ao ocorrer uma condição de failover, os sistemas alternativos ou de backup "assumam" adequadamente o sistema com falha sem perda de dados ou transações.
+			O teste de recuperação é um processo de teste antagonista em que o aplicativo ou o sistema é exposto a condições extremas (ou condições simuladas) tais como falhas de E/S de dispositivo ou ponteiros / chaves de banco de dados inválidos. Os processos de recuperação são chamados e o aplicativo / sistema é monitorado e/ou inspecionado para verificar se foi efetuada a recuperação adequada do aplicativo, do sistema e dos dados.
+			Objetivo do Teste:
+			Verificar se os processos de recuperação (manual ou automatizados) restauram corretamente o banco de dados, os aplicativos e o sistema para um estado conhecido e desejado. Os seguintes tipos de condições devem ser incluídos no teste: 
+			Interrupção de energia para o cliente
+			Interrupção de energia para o servidor
+			Interrupção de comunicação pelo(s) servidor(es) de rede
+			Interrupção ou perda de comunicação ou energia para o DASD e/ou controlador(es) DASD
+			Ciclos incompletos (processos de filtragem de dados interrompidos, processos de sincronização de dados interrompidos) 
+			Ponteiros / chaves de banco de dados inválidas 
+			Elemento de dados inválido / corrompido no banco de dados 
+			Técnica: 
+			Os testes criados para teste da Função do Aplicativo e Ciclo do Negócio devem ser utilizados para criar uma série de transações. Quando o ponto de início do teste desejado for alcançado, as seguintes ações devem ser executadas (ou simuladas) individualmente: 
+			Interrupção de energia para o cliente: desligue o PC 
+			Interrupção de energia para o servidor: simule ou inicie procedimentos de desligamento do servidor 
+			Interrupção via servidores de rede: simule ou inicie uma perda de comunicação com a rede (desconecte fisicamente os cabos de comunicação ou desligue os roteadores / servidor(es) de rede).
+			Interrupção ou perda de comunicação ou energia para o DASD e/ou controlador(es) DASD: simule ou elimine fisicamente a comunicação com um ou mais dispositivos ou controladores DASD.
+			Depois que as condições acima / condições simuladas tiverem sido alcançadas, transações adicionais deverão ser executadas e, quando o estado desse segundo ponto do teste for atingido, os procedimentos de recuperação deverão ser chamados. 
+			O teste de ciclos incompletos utiliza a mesma técnica descrita acima, exceto pelos processos de banco de dados propriamente ditos, que deverão ser anulados ou prematuramente encerrados. 
+			O teste das condições a seguir exige que seja atingido um estado conhecido do banco de dados. Vários campos, ponteiros e chaves de banco de dados deverão ser corrompidos manualmente e diretamente no banco de dados (utilizando as ferramentas de banco de dados). Transações adicionais deverão ser executadas utilizando os Testes de Ciclo de Negócios e de Função do Aplicativo e deverão ser executados ciclos completos. 
+			Critérios de Conclusão:
+			Em todos os casos acima, o aplicativo, o banco de dados e o sistema devem, após a conclusão dos procedimentos de recuperação, retornar a um estado conhecido e desejado. Esse estado inclui corrupção de dados limitada aos campos, ponteiros / chaves e relatórios corrompidos conhecidos, indicando os processos ou transações que não foram concluídos devido a interrupções.
+			Considerações Especiais: 
+			O teste de recuperação é altamente invasivo. Os procedimentos para desconectar cabos (simular perda de energia ou de comunicação) talvez não sejam desejáveis ou viáveis. Poderão ser necessários métodos alternativos como, por exemplo, ferramentas de software de diagnóstico. 
+			Serão necessários Recursos dos Sistemas (ou Operações de Computador), Bancos de Dados e Grupos de Redes. 
+			Esses testes deverão ser executados após o expediente ou em máquina(s) isolada(s).
+
+		11. Teste de Configuração
+			O teste de configuração verifica a operação do software em diferentes configurações de software e de hardware. Na maior parte dos ambientes de produção, as especificações de hardware específicas para as estações de trabalho cliente, as conexões de rede e os servidores de banco de dados variam. As estações de trabalho cliente podem ter softwares diferentes carregados, como aplicativos, drivers etc. A qualquer momento, muitas combinações diferentes podem estar ativas.
+			 
+			Objetivo do Teste:
+			Validar e verificar se os Aplicativos cliente funcionam corretamente nas estações de trabalho cliente prescritas.
+			Técnica: 
+			Utilizar scripts de Teste de Integração e do Sistema
+			Abrir / fechar diversos aplicativos do PC, como parte do teste ou antes do início do teste.
+			Executar transações selecionadas para simular atividades do usuário para dentro e fora de diversos aplicativos de PC.
+			Repita o processo acima, minimizando a memória convencional disponível no cliente. 
+			Critérios de Conclusão:
+			Para cada combinação, as transações são concluídas com êxito e sem falhas.
+			Considerações Especiais: 
+			Quais Aplicativos de PC estão disponíveis e acessíveis nos clientes?
+			Quais os aplicativos normalmente usados? 
+			Que dados estão em execução nos aplicativos (isto é, planilha grande aberta no Excel, documento de 100 páginas no Word).
+			Os sistemas inteiros, servidores de rede, bancos de dados etc. também devem ser documentados como parte deste teste.
+			12. Teste de Instalação
+			O teste de instalação tem duas finalidades. A primeira é assegurar que o software pode ser instalado em todas as configurações possíveis, tais como uma nova instalação, um upgrade e uma instalação completa ou personalizada, e sob condições normais e anormais. Entre as condições anormais estão o espaço insuficiente no disco, a falta de privilégios para criar diretórios, etc. A segunda finalidade é verificar se, depois de instalado, o software funcionará corretamente. Isso geralmente significa executar uma série de testes que foram desenvolvidos para teste de Função.
+			 
+			Objetivo do Teste:
+			Verificar e validar se o software cliente é instalado corretamente em cada cliente sob as seguintes condições: 
+			Nova Instalação: uma nova máquina, nunca instalada.
+			Atualizar máquina instalada anteriormente com a mesma versão
+			Atualizar máquina instalada anteriormente com uma versão mais antiga
+			Técnica: 
+			Validar a condição da máquina de destino (nova - nunca instalada, mesma versão ou versão mais antiga já instalada) de forma manual ou desenvolvendo scripts automatizados.
+			Ativar / executar a instalação.
+			Utilizando um subconjunto predeterminado de scripts de teste de Integração ou do Sistema, executar as transações. 
+			Critérios de Conclusão:
+			As transações são executadas com êxito e sem falhas.
+			Considerações Especiais: 
+			Quais transações devem ser selecionadas para constituir um teste que comprove que o aplicativo foi instalado com êxito e que não está faltando nenhum componente de software principal?

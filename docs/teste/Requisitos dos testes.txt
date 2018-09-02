@@ -1,0 +1,84 @@
+Requisitos do Teste 
+
+A lista a seguir identifica os itens (casos de uso, requisitos funcionais, requisitos não funcionais) que foram identificados como alvos do teste. Essa lista representa o que será testado. Detalhes sobre cada teste serão determinados posteriormente à medida que os Casos de Teste forem identificados e os Scripts de Teste forem desenvolvidos.
+(Nota: Um release futuro desse Plano de Teste pode utilizar o Rational RequisitePro para vincular diretamente aos requisitos no Documento de Visão, nos Documentos de Caso de Uso e na Especificação Complementar.)
+
+Teste de Integridade dos Dados e do Banco de Dados
+Verificar acesso ao Banco de Dados do Catálogo de Cursos.
+Verificar acessos de leitura simultâneos ao registro.
+Verificar interrupção durante atualizações do Catálogo de Cursos.
+Verificar a recuperação correta de atualizações dos dados do banco de dados.
+
+Teste do Sistema (isto é, teste funcional)
+Verificar Caso de Uso Login [6]
+Verificar Caso de Uso Fechar Registro [5]
+Verificar Caso de Uso Manter Informações do Estudante [10]
+Verificar Caso de Uso Manter Informações do Professor [7]
+Verificar Caso de Uso Submeter Notas [11]
+Verificar Caso de Uso Visualizar Cartão de Relatório [12]
+Verificar Caso de Uso Registrar em Cursos [8]
+Verificar Caso de Uso Selecionar Cursos para Lecionar [9]
+Especificação Complementar, seção 4.1: "Todos os erros do sistema devem ser registrados. Os erros fatais do sistema devem resultar em um encerramento ordenado do sistema."
+Especificação Complementar, seção 4.1: " As mensagens de erro do sistema devem incluir uma descrição em texto do erro, o código de erro do sistema operacional (se aplicável), o módulo que detectou a condição de erro, um stamp de dados e um time stamp. Todos os erros do sistema devem ser retidos no Banco de Dados de Log de Erros."
+Documento de Visão, seção 12.2: "O sistema deve fazer interface com o Sistema de Banco de Dados de Catálogo de Cursos existente. O C-Registration deve suportar o formato de dados conforme definido em [2]."
+Documento de Visão, seção 12.2: "O sistema deve fazer interface com o Sistema de Faturamento existente e deve suportar o formato de dados conforme definido em [1]."
+Documento de Visão, seção 12.2: "O componente servidor do sistema deve operar no Servidor do Campus da Universidade e deve ser executado no Sistema Operacional UNIX."
+Especificação Complementar, seção 9.3: "O componente servidor do sistema deve operar no Servidor UNIX do Wylie College."
+Documento de Visão, seção 12.2: "O componente do cliente do sistema deve operar em qualquer computador pessoal com pelo menos um microprocessador 486."
+Especificação Complementar, seção 9.3: "O componente do cliente do sistema deve operar em qualquer computador pessoal com pelo menos um microprocessador 486."
+Especificação Complementar, seção 9.1: "O sistema deve integrar-se ao sistema legado existente (banco de dados do catálogo de cursos) que opera no mainframe DEC VAX da Universidade."
+Especificação Complementar, seção 9.2: "O sistema deve integrar-se ao Sistema de Faturamento de Cursos existente que opera no mainframe DEC VAX da Universidade."
+
+Teste de Ciclo de Negócio
+Verificar a operação após o download de um novo catálogo de cursos.
+Verificar a operação por vários semestres e vários anos.
+Verificar a operação correta quando o semestre se estender para depois da virada do ano.
+
+Teste da Interface com o Usuário
+Verificar a facilidade de navegação utilizando um conjunto de amostras de telas.
+Verificar se as telas de amostra estão em conformidade com os padrões da GUI.
+Documento de Visão, seção 10: "O Sistema deve ter fácil utilização e deve ser apropriado para o mercado de destino de estudantes e professores com experiência em computadores."
+Documento de Visão, seção 12.1: "A interface com o usuário de desktop deve estar em conformidade com o Windows 95/98."
+Especificação Complementar, seção 5.1: "A interface com o usuário de desktop deve estar em conformidade com o Windows 95/98."
+Especificação Complementar, seção 5.2: "A interface com o usuário do C-Registration System deverá ser projetada para facilidade de utilização e deverá ser apropriada para uma comunidade de usuários experiente com computadores, sem treinamento adicional no Sistema."
+Especificação Complementar, seção 5.3: "Cada recurso do C-Registration System deve ter ajuda on-line interna para o usuário. A Ajuda On-line deve incluir instruções passo a passo sobre a utilização do Sistema. A Ajuda On-line deve incluir definições para termos e acrônimos."
+
+Teste de Desempenho 
+Verificar o tempo de resposta para acesso ao sistema Financeiro externo.
+Verificar o tempo de resposta para acesso ao subsistema Catálogo de Cursos externo.
+Verificar o tempo de resposta para login remoto.
+Verificar o tempo de resposta para a submissão remota de registro em curso.
+Documento de Visão, seção 12.3: "O sistema deverá fornecer acesso ao Banco de Dados de Catálogo de Cursos legado com um tempo de espera de no máximo 10 segundos."
+Especificação Complementar, seção 7.2: "O sistema deverá fornecer acesso ao Banco de Dados de Catálogo de Cursos legado com um tempo de espera de no máximo 10 segundos."
+
+Teste de Carga 
+Verificar a resposta do sistema quando estiver carregado com 200 estudantes com logon efetuado.
+Verificar a resposta do sistema quando existir 50 acessos simultâneos de estudantes ao Catálogo de Cursos.
+Especificação Complementar, seção 7.1: "O sistema deve suportar 2.000 usuários simultâneos utilizando o banco de dados central ao mesmo tempo e até 500 usuários simultâneos utilizando os servidores locais a qualquer momento."
+
+Teste de Estresse
+Verificar a resposta do sistema durante o uso no horário nobre do Servidor UNIX.
+Verificar a resposta do sistema durante o máximo de logins de estudantes.
+
+Teste de Volume
+Verificar a resposta do sistema quando o Banco de Dados do Catálogo do Curso estiver em 90% da capacidade. 
+
+Teste de Segurança e Controle de Acesso
+Verificar o Logon a partir de um PC local.
+Verificar o Logon a partir de um PC remoto.
+Verificar a segurança de Logon por meio de mecanismos de nome de usuário e senha.
+Especificação Complementar, Seção 4.2: "Toda a funcionalidade deve estar disponível remotamente por uma conexão à Internet."
+
+Teste de Failover / Recuperação
+Especificação Complementar, seção 6.1: "O C-Registration System deve estar disponível 24 horas por dia, 7 dias por semana. Não deve haver mais que 4% de tempo de inatividade."
+Especificação Complementar, seção 6.2: "O Tempo Médio Entre Falhas deve exceder 300 horas."
+
+Teste de Configuração
+Documento de Visão, seção 12.2: "O componente do cliente do sistema deve ser executado no Windows 95, no Windows 98 e no Microsoft Windows NT."
+Especificação Complementar, Seção 9.4: "A interface baseada na Web do C-Registration System deve ser executada nos navegadores Netscape 4.04 e Internet Explorer 4.0.
+Especificação Complementar, Seção 9.5: "A interface baseada na Web deve ser compatível com o ambiente de tempo de execução Java 1.1 VM.
+
+Teste de Instalação
+Especificação Complementar, seção 8.1: "Os upgrades para a parte cliente PC do C-Registration devem poder ser transferidos por download do Servidor UNIX pela Internet."
+Verificar instalação da parte servidor.
+Verificar instalação da parte cliente.
